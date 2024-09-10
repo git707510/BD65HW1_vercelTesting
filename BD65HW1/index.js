@@ -3,6 +3,7 @@ let app = express();
 app.use(express.json());
 
 let cors = require('cors');
+const res = require('express/lib/response');
 app.use(cors());
 
 // ------------------ sample database ---------------------
@@ -63,6 +64,10 @@ app.post('/api/tournaments', (req, res) => {
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
+});
+
+app.get("/api/show",()=>{
+res.status(200).json({message:"api hit"});
 });
 
 module.exports = { app, validateGame, validateTournament };
