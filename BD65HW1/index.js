@@ -67,7 +67,12 @@ app.post('/api/tournaments', (req, res) => {
 });
 
 app.get("/api/show",()=>{
-res.status(200).json({message:"api hit"});
+return res.status(200).json({message:"api hit"});
 });
+
+app.get("/api",()=>{
+  return res.status(200).send({message:"api hit"});
+  });
+  
 
 module.exports = { app, validateGame, validateTournament };
